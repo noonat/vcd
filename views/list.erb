@@ -1,7 +1,9 @@
+<br/>
 <% tty_dialog do %>
    DOWNLOADING <%= @vessels.length %> VESSEL<% if @vessels.length != 1 %>S<% end %> FROM ARCHIVE<br/>
    <a href="/new">UPLOAD NEW VESSEL</a>
 <% end %>
+<br/>
 <% @vessels.each do |vessel| %>
    <%= erb :_vessel, :layout => false, :locals => {:vessel => vessel} %>
 <% end %>
