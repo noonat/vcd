@@ -4,7 +4,7 @@ Allows users to paste their [Captain Forever](http://captainforever.com) vessel 
 
 ## Installation
 
-VCD requires [DataMapper](http://datamapper.org) and [Sinatra](http://sinatrarb.com).
+vcd requires [DataMapper](http://datamapper.org) and [Sinatra](http://sinatrarb.com).
 
 You can install them with gem:
 
@@ -17,4 +17,4 @@ You can run the app locally using Sinatra:
     $ ruby controller.rb 
     == Sinatra/0.9.4 has taken the stage on 4567 for development with backup from Mongrel
 
-VCD also has a config.ru file for use with Passenger.
+vcd also has a config.ru file for use with Passenger.
