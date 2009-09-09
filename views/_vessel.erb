@@ -1,8 +1,6 @@
 <div class="vessel">
-<% s = "ARCHIVE DATA NODE #<a href=\"#{vessel.href}\">#{vessel.id}.VCD</a>" %>
-<%= s + ' ' + '-' * (100- s.length) %>
-<div style="text-align:center;"><%= vessel.data %></div>
-<div style="text-align:center;"><a href="<%= vessel.pilot_href %>">PILOT THIS VESSEL</a></div>
-<br/>&nbsp;
+   <%= tty_h2 "ARCHIVE DATA NODE #<a href=\"#{vessel.href}\">#{vessel.id}.VCD</a>" %>
+   <div class="data"><%= vessel.data %></div>
+   <div class="link"><a href="<%= vessel.pilot_href %>">PILOT THIS VESSEL</a></div>
+   <br/>&nbsp;
 </div>
-

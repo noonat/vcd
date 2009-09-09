@@ -3,8 +3,7 @@ body {
    color:#fff;
    font-family:"Courier New",Courier,fixed;
    font-size:16px;
-   margin:0 0 2em 0;
-   min-height:100%;
+   margin:0;
    padding:0;
    text-align:center;
 }
@@ -25,4 +24,31 @@ input:hover { background-color:#fff; color:#000; }
 .invert a:hover { background:#000; color:#fff; }
 .greenblock { background-color:#040; color:#0f0; }
 .redblock { background-color:#400; color:#f00; }
-.footer { margin-top: 2em; }
+.footer { margin-top: 2em; margin-bottom:2em; }
+
+.tty_dialog { position: relative; left:-6px; }
+.tty_dialog .borders { width:100%; height:100%; }
+.tty_dialog .borders div { position:absolute; z-index:1; }
+.tty_dialog .borders .corner { width:16px; height:16px; z-index:2; }
+.tty_dialog .t, .tty_dialog .b { width:100%; height:16px; }
+.tty_dialog .l, .tty_dialog .r { height:100%; width:16px; }
+.tty_dialog .tl { background:url(images/tl.png) no-repeat; top:0; left:0; }
+.tty_dialog .tr { background:url(images/tr.png) no-repeat; top:0; right:0; }
+.tty_dialog .bl { background:url(images/bl.png) no-repeat; bottom:0; left:0; }
+.tty_dialog .br { background:url(images/br.png) no-repeat; bottom:0; right:0; }
+.tty_dialog .t { background:url(images/t.png) repeat-x; top:0; left: 0; }
+.tty_dialog .b { background:url(images/b.png) repeat-x; bottom:0; left: 0;}
+.tty_dialog .l { background:url(images/l.png) repeat-y; top:0; left:0; }
+.tty_dialog .r { background:url(images/r.png) repeat-y; top:0; right:0; }
+.tty_dialog .text { width:100%; position:absolute; top:0; left:0; z-index:3; text-align:center; }
+.tty_h1 { position:relative; }
+.tty_h1 .left { float:left; }
+.tty_h1 .right { float:right; }
+.tty_h1 .center { position:absolute; left:0; text-align:center; width:100%; }
+.tty_h2 { background:url(images/dashes.png) 0 8px repeat-x; }
+.tty_h2 span { background:#000; padding-right:0.5em; }
+
+.vessel .data { text-align:center; }
+.vessel .link { text-align:center; }
+
+textarea#vessel_data { background:#000; border:1px solid #fff; width:640px; height:320px; }

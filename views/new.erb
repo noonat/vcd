@@ -1,17 +1,14 @@
-<%= terminal_header 'ALLOCATING NEW ARCHIVE ENTRY...' %>
-<div style="position:relative;">
-   <div>&#9556;<%= '&#9552;' * 81 %>&#9559;</div>
-   <% 25.times do %><div>&#9553;<%= '&nbsp;' * 81 %>&#9553;</div><% end %>
-   <div>&#9562;<%= '&#9552;' * 81 %>&#9565;</div>
-   <div style="position:absolute; top:3em; left:0; width:100%;">
-      <div style="text-align:center;">
-         INPUT VESSEL CONFIGURATION<br/>
-         Enter HTML export of historical vehicle data:</br>
-         <% if @error %><span class="redblock"><%= @error %></span><% end %><br/>
-         <form method="post">
-            <textarea id="vessel_data" name="vessel_data" style="background:#000; border:1px solid #fff; width:640px; height:320px;"></textarea><br/>
-            <input class="button" type="submit" value="TRANSMIT">
-         </form>
-      </div>
-   </div>
-</div>
+<%= tty_h1 'ALLOCATING NEW ARCHIVE ENTRY...' %>
+<% tty_dialog :height => '480px' do %>
+   INPUT VESSEL CONFIGURATION<br/>
+   Enter HTML export of vehicle data for storage:<br/>
+   <% if @error %>
+      <span class="redblock"><%= @error %></span>
+   <% end %>
+   <br/>
+   <form method="post">
+      <textarea id="vessel_data" name="vessel_data"></textarea><br/>
+      <br/>
+      <input class="button" type="submit" value="TRANSMIT">
+   </form>
+<% end %>
