@@ -1,0 +1,10 @@
+<div style="position:relative;">
+   <div>&#9556;<%= '&#9552;' * 78 %>&#9559;</div>
+   <% 4.times do %><div>&#9553;<%= '&nbsp;' * 78 %>&#9553;</div><% end %>
+   <div>&#9562;<%= '&#9552;' * 78 %>&#9565;</div>
+   <div style="position:absolute; top:2em; text-align:center; width:100%">DOWNLOADING <%= @vessels.length %> VESSEL<% if @vessels.length != 1 %>S<% end %> FROM ARCHIVE...<br/><a href="/new">UPLOAD NEW VESSEL</a></div>
+   <br/>
+</div>
+<% @vessels.each do |vessel| %>
+<%= erb :_vessel, :layout => false, :locals => {:vessel => vessel} %>
+<% end %>

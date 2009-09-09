@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <title><%= @title %>[VCD ARCHIVE]</title>
+   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"/>
+   <link rel="stylesheet" type="text/css" href="/styles.css"/>
+</head>
+
+<body>
+   <div class="content">
+      <%= terminal_header '<a href="/">VESSEL&nbsp;CONFIGURATION&nbsp;DATA&nbsp;ARCHIVE</a>', :right => ((eighties_time('%Y').to_i-20).to_s + eighties_time('-%m-%d&nbsp;%H:%M:%S')), :classes => 'header invert' %>
+      <%= yield %>
+      <%= terminal_header '', :center => '<a href="http://www.captainforever.com/">WWW.CAPTAINFOREVER.COM</a>', :classes => 'footer invert' %>
+   </div>
+</body>
+
+</html>
