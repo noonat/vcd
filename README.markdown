@@ -1,6 +1,6 @@
 # Vehicle Configuration Data Archive
 
-Allows users to paste their (Captain Forever)[http://captainforever.com] vessel exports to share with others.
+Allows users to paste their [Captain Forever](http://captainforever.com) vessel exports to share with others.
 
 ## Installation
 
