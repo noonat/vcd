@@ -1,0 +1,12 @@
+!!! XML iso-8859-1
+%rss{ :version => 2.0 }
+   %channel
+      %title VCD ARCHIVE LOG
+      %link http://vcd.phuce.com
+      %description Captain Forever VCD archive
+      %pubDate= @vessels.first.created_at.strftime('%a, %d %b %Y %H:%M:%S %Z')
+      - @vessels.each do |vessel|
+         %item
+            %title #{vessel.id}.VCD
+            %link http://vcd.phuce.com/vessels/#{vessel.id}
+            %description

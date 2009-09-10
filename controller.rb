@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'time'
+require 'haml'
 
 require 'models'
 require 'helpers'
@@ -33,6 +34,11 @@ post '/new' do
       end
       redirect @vessel.href
    end
+end
+
+get '/rss' do
+   @vessels = Vessel.all(:order => [:created_at.desc], :limit => 30)
+   haml :rss
 end
 
 get '/vessels/?' do
