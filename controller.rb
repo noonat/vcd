@@ -36,7 +36,7 @@ post '/new' do
    end
 end
 
-get '/rss' do
+get '/rss.xml' do
    @vessels = Vessel.all(:order => [:created_at.desc], :limit => 30)
    haml :rss
 end
