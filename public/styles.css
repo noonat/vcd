@@ -23,7 +23,7 @@ body { line-height:1.2; }
 body {
    background:#000;
    color:#fff;
-   font-family:"Courier New",Courier,fixed;
+   font-family:Courier,"Courier New",fixed;
    font-size:16px;
    margin:0;
    padding:0;
@@ -81,5 +81,5 @@ input:hover { background-color:#fff; color:#000; }
 .tty_h2 span { background:#000; padding-right:0.5em; }
 
 .vessel .data,
-.vessel .link { text-align:center; }
+.vessel .link { font-size:12px; text-align:center; }
 textarea#vessel_data { background:#000; border:1px solid #fff; width:640px; height:320px; }
