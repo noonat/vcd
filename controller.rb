@@ -47,5 +47,16 @@ end
 
 get '/vessels/:id/?' do
    @vessel = Vessel.get(params[:id])
+   raise Sinatra::NotFound if @vessel.nil?
+   click = @vessel.vessel_clicks.build(:referrer=>request.referrer, :ip=>request.ip)
+   click.save
    erb :show
+end
+
+get '/vessels/:id/pilot/?' do
+   vessel = Vessel.get(params[:id])
+   raise Sinatra::NotFound if vessel.nil?
+   click = vessel.vessel_pilot_clicks.build(:referrer=>request.referrer, :ip=>request.ip)
+   click.save
+   redirect vessel.pilot_href
 end

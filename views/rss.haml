@@ -1,7 +1,7 @@
 !!! XML iso-8859-1
 %rss{ :version => 2.0 }
    %channel
-      %title VCD ARCHIVE LOG
+      %title vcd_archive.log
       %link http://vcd.phuce.com
       %description Captain Forever VCD archive
       %pubDate= @vessels.first.created_at.strftime('%a, %d %b %Y %H:%M:%S %Z')
@@ -9,5 +9,5 @@
          %item
             %title #{vessel.id}.VCD
             %link http://vcd.phuce.com/vessels/#{vessel.id}
-            %description <![CDATA[<code>#{vessel.data_trimmed}[<a href="#{vessel.pilot_href}">PILOT THIS VESSEL</a>]<br/></code>]]>
+            %description <![CDATA[<code>#{vessel.data_trimmed}[<a href="#{vessel.pilot_href(true)}">PILOT THIS VESSEL</a>]<br/></code>]]>
             %pubDate= vessel.created_at.strftime('%a, %d %b %Y %H:%M:%S %Z')
