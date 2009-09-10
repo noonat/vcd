@@ -17,7 +17,7 @@ get '/new' do
 end
 
 post '/new' do
-   parsed = parse_vcd(params[:vessel_data])
+   parsed = Vessel.parse(params[:vessel_data])
    if parsed == nil
       @error = 'INVALID VEHICLE CONFIGURATION DATA'
       erb :new

@@ -45,10 +45,9 @@ input:hover { background-color:#fff; color:#000; }
 .tty_h1 .left { float:left; }
 .tty_h1 .right { float:right; }
 .tty_h1 .center { position:absolute; left:0; text-align:center; width:100%; }
-.tty_h2 { background:url(images/dashes.png) 0 8px repeat-x; }
+.tty_h2 { background:url(images/t.png) 0 2px repeat-x; }
 .tty_h2 span { background:#000; padding-right:0.5em; }
 
-.vessel .data { text-align:center; }
+.vessel .data,
 .vessel .link { text-align:center; }
-
 textarea#vessel_data { background:#000; border:1px solid #fff; width:640px; height:320px; }

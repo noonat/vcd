@@ -2,15 +2,10 @@ helpers do
    include Rack::Utils
    alias_method :h, :escape_html
 
-   def eighties_time(format, time=nil)
+   def eighties_time(time=nil)
       time ||= Time.now
-      time.strftime format
-   end
-
-   def parse_vcd(data)
-      matched = (data =~ /<tt style=\"background-color: rgb\(0,0,0\)\">(.+)<\/tt><br\/><a href=\"http:\/\/www\.captainforever\.com\/captainforever\.php\?cfe=([a-z0-9]+)\">Pilot this vessel<\/a>/m)
-      return nil if matched == nil
-      {:data=>$1, :cfe=>$2}
+      year = (time.strftime('%Y').to_i - 20).to_s
+      year + time.strftime('-%m-%d&nbsp;%H:%M:%S')
    end
 
    def tty_dialog(opts={}, &block)

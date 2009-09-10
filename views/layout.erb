@@ -9,7 +9,7 @@
 
 <body>
    <div class="content">
-      <%= tty_h1 '<a href="/">VESSEL&nbsp;CONFIGURATION&nbsp;DATA&nbsp;ARCHIVE</a>', :right => ((eighties_time('%Y').to_i-20).to_s + eighties_time('-%m-%d&nbsp;%H:%M:%S')), :classes => 'header invert' %>
+      <%= tty_h1 '<a href="/">VESSEL&nbsp;CONFIGURATION&nbsp;DATA&nbsp;ARCHIVE</a>', :right => eighties_time, :classes => 'header invert' %>
       <%= yield %>
       <%= tty_h1 '', :center => '<a href="http://www.captainforever.com/">WWW.CAPTAINFOREVER.COM</a>', :classes => 'footer invert' %>
       <div>&nbsp;</div>
