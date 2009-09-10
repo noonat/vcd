@@ -1,3 +1,4 @@
+/* reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,6 +17,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
    vertical-align:baseline;
 }
 body { line-height:1.2; }
+
+/* inline styles */
 
 body {
    background:#000;
@@ -37,15 +40,23 @@ input, textarea {
 input { border:none; border-bottom:1px solid #fff; }
 input.button { border:none; border:1px solid #fff; }
 input:hover { background-color:#fff; color:#000; }
-.content { width:50em; margin:0 auto; text-align:left; }
 .invert { background:#fff; color:#000; }
 .invert a { color:#000; }
 .invert a:hover { background:#000; color:#fff; }
 .greenblock { background-color:#040; color:#0f0; }
 .redblock { background-color:#400; color:#f00; }
-.footer { margin-top: 2em; margin-bottom:2em; }
 
-.tty_dialog { position: relative; left:-6px; }
+/* block styles */
+
+/* these elements should be centered */
+.footer,
+.tty_dialog,
+.tty_h1,
+.tty_h2 { margin:0 auto; text-align:left; width:50em; }
+
+.footer { margin:2em auto; }
+
+.tty_dialog { position:relative; }
 .tty_dialog .borders { width:100%; height:100%; }
 .tty_dialog .borders div { position:absolute; z-index:1; }
 .tty_dialog .borders .corner { width:16px; height:16px; z-index:2; }
@@ -55,15 +66,17 @@ input:hover { background-color:#fff; color:#000; }
 .tty_dialog .tr { background:url(images/tr.png) no-repeat; top:0; right:0; }
 .tty_dialog .bl { background:url(images/bl.png) no-repeat; bottom:0; left:0; }
 .tty_dialog .br { background:url(images/br.png) no-repeat; bottom:0; right:0; }
-.tty_dialog .t { background:url(images/t.png) repeat-x; top:0; left: 0; }
-.tty_dialog .b { background:url(images/b.png) repeat-x; bottom:0; left: 0;}
+.tty_dialog .t { background:url(images/t.png) repeat-x; top:0; left:0; }
+.tty_dialog .b { background:url(images/b.png) repeat-x; bottom:0; left:0;}
 .tty_dialog .l { background:url(images/l.png) repeat-y; top:0; left:0; }
 .tty_dialog .r { background:url(images/r.png) repeat-y; top:0; right:0; }
 .tty_dialog .text { width:100%; position:absolute; top:0; left:0; z-index:3; text-align:center; }
+
 .tty_h1 { position:relative; }
 .tty_h1 .left { float:left; }
 .tty_h1 .right { float:right; }
 .tty_h1 .center { position:absolute; left:0; text-align:center; width:100%; }
+
 .tty_h2 { background:url(images/t.png) 0 2px repeat-x; }
 .tty_h2 span { background:#000; padding-right:0.5em; }
 
