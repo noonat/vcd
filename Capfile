@@ -21,7 +21,7 @@ set :runner, user
 set :admin_runner, user
 
 namespace :deploy do
-	task :restart do
-		run "touch #{current_path}/tmp/restart.txt"
-	end
+   task :restart do
+      run "touch #{current_path}/tmp/restart.txt"
+   end
 end

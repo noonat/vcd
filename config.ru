@@ -1,10 +1,8 @@
 require 'rubygems'
 require 'sinatra'
 
-Sinatra::Application.default_options.merge!(
-	:run => false,
-	:env => :production
-)
+Sinatra::Default.set(:run, false)
+Sinatra::Default.set(:env, :production)
 
 require 'controller'
-run Sinatra.application
+run Sinatra::Application

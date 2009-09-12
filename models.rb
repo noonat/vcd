@@ -31,16 +31,13 @@ class Vessel
          matched = (data =~ /<tt style=\"background-color: rgb\(0,0,0\)\">(.+)<\/tt><br\/><a href=\"http:\/\/www\.captainforever\.com\/captainforever\.php\?cfe=([a-z0-9]+)\">Pilot this vessel<\/a>/m)
          return nil if matched == nil
          cfe = $2
-         puts $1
          data = Hpricot($1.gsub(/&lt([^;])/, '&lt;\1'))
-         puts data.to_s
          data.search('*').each do |node|
             if node.elem?
                case node.name.downcase
                when 'br', 'span'
                   node.attributes.delete_if { |k,v| k.downcase != 'style' }
                else
-                  puts 'unlinking', node
                   node.parent.children.delete(node)
                end
             elsif node.comment?
