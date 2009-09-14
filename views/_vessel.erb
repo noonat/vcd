@@ -1,7 +1,7 @@
 <div class="vessel">
    <%= tty_h2 "ARCHIVE DATA FILE <a href=\"#{vessel.href}\">#{vessel.id}.VCD</a>" %>
    <div class="stats">
-      <div class="logged">logged by <%= vessel.md5 %> on <%= eighties_time(vessel.created_at)[0,10] %></div>
+      <div class="logged">logged by pilot <%= vessel.md5 %> on <%= eighties_time(vessel.created_at)[0,10] %></div>
       <div class="piloted"><%= vessel.vessel_pilot_clicks.length + 1 %> known pilot(s)</div>
       <div style="clear:both;"></div>
    </div>
