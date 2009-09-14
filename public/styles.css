@@ -81,5 +81,9 @@ input:hover { background-color:#fff; color:#000; }
 .tty_h2 span { background:#000; padding-right:0.5em; }
 
 .vessel .data,
-.vessel .link { font-size:12px; text-align:center; }
+.vessel .link { font-size:12px; overflow:hidden; text-align:center; }
+.vessel .stats { margin:0 auto; text-align:left; width:50em; }
+.vessel .stats div { font-size:12px; }
+.vessel .stats .logged { float:left; }
+.vessel .stats .piloted { float:right; }
 textarea#vessel_data { background:#000; border:1px solid #fff; width:640px; height:320px; }

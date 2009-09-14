@@ -25,12 +25,15 @@ post '/new' do
    else
       @vessel = Vessel.first(:cfe=>parsed[:cfe])
       if @vessel == nil
-         @vessel = Vessel.new(:data=>parsed[:data], :cfe=>parsed[:cfe])
+         @vessel = Vessel.new(:data=>parsed[:data], :cfe=>parsed[:cfe], :ip=>request.ip)
          if !@vessel.save
              @error = 'ERROR SAVING VESSEL DATA. TRY AGAIN LATER.'
              erb :new
              return
          end
+      else
+         click = @vessel.vessel_pilot_clicks.build(:referrer=>request.referrer, :ip=>request.ip)
+         click.save
       end
       redirect @vessel.href
    end

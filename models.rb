@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'digest/md5'
 require 'dm-core'
 require 'dm-timestamps'
 require 'dm-types'
@@ -18,6 +19,7 @@ class Vessel
    
    property :id, Serial
    property :created_at, DateTime
+   property :ip, IPAddress
    property :cfe, Text, :lazy => false
    property :data, Text, :lazy => false
    
@@ -57,6 +59,11 @@ class Vessel
    
    def href
       "/vessels/#{id}"
+   end
+   
+   def md5
+      return 'unknown pilot' if ip.nil?
+      Digest::MD5.hexdigest(ip.to_s)
    end
 
    def pilot_href(track=false)
