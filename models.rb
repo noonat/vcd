@@ -62,7 +62,7 @@ class Vessel
    end
    
    def md5
-      return 'unknown pilot' if ip.nil?
+      return '&lt;null&gt;' if ip.nil?
       Digest::MD5.hexdigest(ip.to_s)
    end
 
