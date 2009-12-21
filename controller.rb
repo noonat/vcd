@@ -9,7 +9,7 @@ require 'helpers'
 set :static, true
 
 get '/' do
-   @vessels = Vessel.all(:order=>[:created_at.desc], :limit=>30)
+   @vessels = Vessel.all(:order=>[:created_at.desc]) #, :limit=>30)
    erb :list
 end
 
