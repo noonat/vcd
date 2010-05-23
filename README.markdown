@@ -5,6 +5,7 @@ Allows users to paste their [Captain Forever](http://captainforever.com) vessel 
 ## Installation
 
 vcd requires:
+
 - [DataMapper](http://datamapper.org) to talk MySQL
 - [Sinatra](http://sinatrarb.com) to talk HTTP
 - [Haml](http://haml-lang.com/) to talk HTML

@@ -3,7 +3,7 @@ load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 default_run_options[:pty] = true
 
 set :application, 'vcd'
-set :user, 'webuser'
+set :user, 'nathano'
 set :use_sudo, false
 
 set :scm, :git
