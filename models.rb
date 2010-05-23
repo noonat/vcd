@@ -9,8 +9,8 @@ require 'hpricot'
 DataMapper.setup(:default, {
   :adapter  => 'mysql',
   :database => 'vcd',
-  :username => 'root',
-  :password => '',
+  :username => 'vcd',
+  :password => '51k4n2f9',
   :host     => 'localhost'
 })
 
