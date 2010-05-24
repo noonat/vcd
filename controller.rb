@@ -10,6 +10,13 @@ set :static, true
 
 get '/' do
    @vessels = Vessel.all(:order=>[:created_at.desc]) #, :limit=>30)
+   rows = repository(:default).adapter.query(
+      'SELECT vessel_id, COUNT(*) AS count
+       FROM vessel_pilot_clicks GROUP BY vessel_id')
+   @vessel_pilot_clicks = rows.inject({}) do |clicks, row|
+      clicks[row.vessel_id] = row.count
+      clicks
+   end
    erb :list
 end
 

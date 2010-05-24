@@ -1,11 +1,13 @@
 require 'rubygems'
 require 'digest/md5'
 require 'dm-core'
+require 'dm-aggregates'
 require 'dm-timestamps'
 require 'dm-types'
 require 'dm-validations'
 require 'hpricot'
 
+#DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, {
   :adapter  => 'mysql',
   :database => 'vcd',
