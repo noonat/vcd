@@ -10,10 +10,10 @@ require 'hpricot'
 #DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, {
   :adapter  => 'mysql',
-  :database => 'vcd',
-  :username => 'vcd',
-  :password => '51k4n2f9',
-  :host     => 'localhost'
+  :database => ENV['VCD_DB_NAME'],
+  :username => ENV['VCD_DB_USERNAME'],
+  :password => ENV['VCD_DB_PASSWORD'],
+  :host     => ENV['VCD_DB_HOST']
 })
 
 class Vessel
