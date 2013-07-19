@@ -6,14 +6,18 @@ require 'dm-timestamps'
 require 'dm-types'
 require 'dm-validations'
 require 'hpricot'
+require 'yaml'
+
+config_filename = File.join(File.dirname(__FILE__), 'config.yaml')
+config = YAML.load_file(config_filename)
 
 #DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, {
   :adapter  => 'mysql',
-  :database => ENV['VCD_DB_NAME'],
-  :username => ENV['VCD_DB_USERNAME'],
-  :password => ENV['VCD_DB_PASSWORD'],
-  :host     => ENV['VCD_DB_HOST']
+  :database => config['VCD_DB_NAME'],
+  :username => config['VCD_DB_USERNAME'],
+  :password => config['VCD_DB_PASSWORD'],
+  :host     => config['VCD_DB_HOST']
 })
 
 class Vessel
