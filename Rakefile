@@ -1,6 +1,6 @@
 namespace :db do
     task :migrate do
-        require 'models'
+        require_relative './models'
         require 'dm-migrations'
         DataMapper.auto_upgrade!
     end

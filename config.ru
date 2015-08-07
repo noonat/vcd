@@ -7,5 +7,5 @@ require 'sinatra'
 set :env, :production
 disable :run
 
-require 'controller'
+require_relative './controller'
 run Sinatra::Application

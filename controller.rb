@@ -3,8 +3,8 @@ require 'sinatra'
 require 'time'
 require 'haml'
 
-require 'models'
-require 'helpers'
+require_relative './models'
+require_relative './helpers'
 
 set :static, true
 

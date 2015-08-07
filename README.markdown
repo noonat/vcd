@@ -11,15 +11,17 @@ vcd requires:
 - [Haml](http://haml-lang.com/) to talk HTML
 - [Hpricot](http://github.com/whymirror/hpricot/tree/master) to sanitize things
 
-You can install them with gem:
+You can install them with bundler:
 
-    sudo gem install datamapper do_mysql haml hpricot sinatra
+    bundle install
 
 ## Usage
 
-You can run the app locally using Sinatra:
+You can run the app locally using Rack:
 
-    $ ruby controller.rb 
-    == Sinatra/0.9.4 has taken the stage on 4567 for development with backup from Mongrel
+    $ bundle exec rackup
 
-vcd also has a config.ru file for use with Passenger.
+You can also run it using Docker:
+
+    $ docker build -t noonat/vcd .
+    $ docker run --rm --name vcd --publish 8000:80 --env VCD_DB_HOST=172.17.42.1 noonat/vcd
