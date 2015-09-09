@@ -18,5 +18,6 @@ RUN bundle install
 
 COPY . /opt/src
 EXPOSE 80
+ENV VIRTUAL_HOST vcd.phuce.com
 
 CMD ["bundle", "exec", "rackup", "-p", "80"]
