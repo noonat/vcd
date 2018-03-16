@@ -1,23 +1,12 @@
-FROM noonat/rbenv-nodenv
-MAINTAINER Nathan Ostgard <noonat@phuce.com>
+# This Dockerfile is intended to be used for development.
 
-ENV RUBY_VERSION=2.1.6
+FROM golang:1.10
 
-RUN rbenv install $RUBY_VERSION && \
-    CONFIGURE_OPTS="--disable-install-doc" rbenv global $RUBY_VERSION && \
-    gem install bundler && \
-    apt-get update -y && \
-    apt-get install -y --no-install-recommends libmysqlclient-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN go get -u github.com/githubnemo/CompileDaemon
 
-COPY Gemfile /opt/src/Gemfile
-COPY Gemfile.lock /opt/src/Gemfile.lock
-WORKDIR /opt/src
-RUN bundle install
+COPY . /go/src/github.com/noonat/vcd
+WORKDIR /go/src/github.com/noonat/vcd
+RUN go install github.com/noonat/vcd/cmd/vcd
 
-COPY . /opt/src
-EXPOSE 80
-ENV VIRTUAL_HOST vcd.phuce.com
-
-CMD ["bundle", "exec", "rackup", "-p", "80"]
+EXPOSE 8080
+CMD ["vcd"]

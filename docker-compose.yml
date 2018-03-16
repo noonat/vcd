@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  vcd:
+    build:
+      context: .
+    command:
+      - 'CompileDaemon'
+      - '-exclude-dir=.git'
+      - '-graceful-kill=true'
+      - '-build=go build -o /go/bin/vcd github.com/noonat/vcd/cmd/vcd'
+      - '-command=/go/bin/vcd'
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_DSN=root:password@tcp(mysql:3306)/vcd
+    image: golang:1.10
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/go/src/github.com/noonat/vcd
+    working_dir: /go/src/github.com/noonat/vcd
+
+  mysql:
+    environment:
+      - MYSQL_DATABASE=vcd
+      - MYSQL_ROOT_PASSWORD=password
+    image: mysql:5
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql: {}
