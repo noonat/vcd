@@ -3,7 +3,9 @@ package vcd
 import (
 	"context"
 	"database/sql"
+	"log"
 	"strings"
+	"time"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/noonat/vcd/migrate"
@@ -71,6 +73,11 @@ var migrations = []migrate.Migration{
 	},
 }
 
+var (
+	retryAttempts = 5
+	retryDuration = 1 * time.Second
+)
+
 // openDB opens a database connection and runs migrations on it.
 func openDB(ctx context.Context, dsn string) (*sql.DB, error) {
 	config, err := mysql.ParseDSN(dsn)
@@ -83,7 +90,6 @@ func openDB(ctx context.Context, dsn string) (*sql.DB, error) {
 	config.Params["collation"] = "utf8mb4_unicode_ci"
 	config.Params["sql_mode"] = "'" + strings.Join([]string{
 		"ERROR_FOR_DIVISION_BY_ZERO",
-		"NO_AUTO_CREATE_USER",
 		"NO_ENGINE_SUBSTITUTION",
 		"NO_ZERO_DATE",
 		"NO_ZERO_IN_DATE",
@@ -97,7 +103,15 @@ func openDB(ctx context.Context, dsn string) (*sql.DB, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "error connecting to db")
 	}
-	if err := db.PingContext(ctx); err != nil {
+	for i := 0; i < retryAttempts; i++ {
+		err = db.PingContext(ctx)
+		if err == nil {
+			break
+		}
+		log.Printf("Error pinging database, retrying after %f seconds...", retryDuration.Seconds())
+		time.Sleep(retryDuration)
+	}
+	if err != nil {
 		return nil, errors.Wrap(err, "error pinging db")
 	}
 

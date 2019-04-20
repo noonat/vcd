@@ -1,6 +1,6 @@
 # This Dockerfile is intended to be used for development.
 
-FROM golang:1.10
+FROM golang:1.12
 
 RUN go get -u github.com/githubnemo/CompileDaemon
 

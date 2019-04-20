@@ -8,6 +8,7 @@ package vcd
 
 import (
 	"context"
+	"log"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -28,6 +29,7 @@ func Run(ctx context.Context, listenAddr, mysqlDSN string) error {
 	router.GET("/vessels/:id/pilot", handleVesselPilot(db))
 	router.NotFound = http.FileServer(http.Dir("./public"))
 
+	log.Printf("Starting server on %s", listenAddr)
 	if err := http.ListenAndServe(listenAddr, router); err != nil {
 		return errors.Wrap(err, "error listening")
 	}
