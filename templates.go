@@ -18,9 +18,9 @@ type newTmplArgs struct {
 
 func init() {
 	baseTmpl := template.Must(template.New("base").Funcs(template.FuncMap{
-		"eightiesTime": eightiesTime,
-		"hashVessel":   hashVessel,
-		"now":          time.Now,
+		"eightiesTime":           eightiesTime,
+		"hashVessel":             hashVessel,
+		"now":                    time.Now,
 		"removeVesselBlankLines": removeVesselBlankLines,
 	}).Parse(`
 {{define "layout" -}}
@@ -29,8 +29,8 @@ func init() {
 <head>
 	<meta charset="utf-8">
 	<title>{{block "title" .}}{{end}}[VCD ARCHIVE]</title>
-	<link rel="icon" type="image/vnd.microsoft.icon" href="http://vcd.phuce.com/favicon.ico"/>
-	<link rel="alternate" type="application/rss+xml" href="http://vcd.phuce.com/rss.xml" title="VCD ARCHIVE LOG"/>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="https://vcd.phuce.com/favicon.ico"/>
+	<link rel="alternate" type="application/rss+xml" href="https://vcd.phuce.com/rss.xml" title="VCD ARCHIVE LOG"/>
 	<link rel="stylesheet" type="text/css" href="/styles.css"/>
 </head>
 <body>

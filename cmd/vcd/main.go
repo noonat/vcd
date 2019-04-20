@@ -18,7 +18,6 @@ func main() {
 	flag.Parse()
 
 	ctx := context.Background()
-
 	if err := vcd.Run(ctx, listenAddr, mysqlDSN); err != nil {
 		log.Fatalf("%+v", err)
 	}
